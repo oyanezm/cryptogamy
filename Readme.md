@@ -48,18 +48,13 @@ c. if the character is non numeric and non alphabetic
 ENCRYPTION CODE: '152'
 
 '123456'       => '217306695584477368'
-
 'hello_world'  => 'iiefqmtwsqtpybx___qtpnqmnqmgjnjmf'
-
 'hola&chao12'  => 'i73p62qtpcfbjmiehd&&&cfbnqmqt3jm4'
 
 ENCRYPTION CODE: '523'
 
 '123456'       => '681770769658548439'
-
 'hello_world'  => 'mfijnqutwrqtzyb___rqtonqonqhgokjg'
-
 'hola&chao12'  => 'm47t36rqtdcfkjmfeh&&&dcfonqrq4kj5'
-
 'lalala'       => 'qcffnqdcfonqdcoond'
 
