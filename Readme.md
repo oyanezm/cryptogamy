@@ -1,10 +1,12 @@
 # Encription Class
 
-Cyrpto encrypts based on a *Encryption Key*, that is a set
-of number betwen *0-9*.
+Cyrpto encrypts based on a **Encryption Key**, that is a set
+of number betwen **0-9**.
 
-E.g  '12' VALID!
-     '123sdd0' INVALID!
+E.g
+
+'12' VALID!
+'123sdd0' INVALID!
 
 The encryption method consist in three steps:
 
