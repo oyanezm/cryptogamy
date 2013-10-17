@@ -12,8 +12,8 @@ The encryption method consist in three steps:
 
 1. First Step: depends on the type of character.
 
-Each letter of the string will be encrypted based on each
-number of the Encryption Key.
+...Each letter of the string will be encrypted based on each
+...number of the Encryption Key.
 
 a. if the character is Alphabetic thus a-zA-Z
    the encryption will be the next X letters in the alphabetic.
@@ -43,16 +43,23 @@ c. if the character is non numeric and non alphabetic
  a. Swap First and Last Letter. E.g 'hola' => 'aolh'
  b. Swap (First + 3) by (Last -3) E.g 'abcDEfgh' => 'abceEDfgh'
 
-Tests
+## Tests
 
 ENCRYPTION CODE: '152'
+
 '123456'       => '217306695584477368'
+
 'hello_world'  => 'iiefqmtwsqtpybx___qtpnqmnqmgjnjmf'
+
 'hola&chao12'  => 'i73p62qtpcfbjmiehd&&&cfbnqmqt3jm4'
 
 ENCRYPTION CODE: '523'
+
 '123456'       => '681770769658548439'
+
 'hello_world'  => 'mfijnqutwrqtzyb___rqtonqonqhgokjg'
+
 'hola&chao12'  => 'm47t36rqtdcfkjmfeh&&&dcfonqrq4kj5'
+
 'lalala'       => 'qcffnqdcfonqdcoond'
 
