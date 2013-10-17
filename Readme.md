@@ -1,7 +1,8 @@
+# Encription Class
 
-Encription Class
-The encryption method is based on a Encription Key.
-The Encryption Key is a set of number betwen 0-6.
+Cyrpto encrypts based on a *Encryption Key*, that is a set
+of number betwen *0-9*.
+
 E.g  '12' VALID!
      '123sdd0' INVALID!
 
