@@ -1,7 +1,13 @@
 
 // Set Globals
 var Alphabet = "abcdefghijklmnopqrstuvwxyz".split('');
-var Key = ''; // TODO: get this from config
+var Encryption_Key = ""; // TODO: get this from config
+
+// Load Crypto
+function init_Crypto(EKEY){
+
+    Encryption_Key = EKEY; // TODO: get this from config
+}
 
 
 /**
@@ -101,7 +107,7 @@ function get_EncryptedChar(chr){
 
     // is non alphanumeric then just repeat
     string = ''
-    for(var i = 0; i < Key.length; i++){
+    for(var i = 0; i < Encryption_Key.length; i++){
         string = string.concat(chr);
     }
     return string;
@@ -112,8 +118,8 @@ function get_EncryptedLetter(letter){
     string = '';
     is_Upper = (letter == letter.toUpperCase());
 
-    for(var i = 0; i < Key.length; i++){
-        offset = parseInt(Key.charAt(i));
+    for(var i = 0; i < Encryption_Key.length; i++){
+        offset = parseInt(Encryption_Key.charAt(i));
         letter_pos = get_AlphabetPosition(letter);
         encrypted_pos = letter_pos + offset;
         if(encrypted_pos > 25){ encrypted_pos = encrypted_pos - 26; }
@@ -135,8 +141,8 @@ function get_AlphabetPosition(letter){
 /** encrypts a number **/
 function get_EncryptedNumber(num){
     string  = '';
-    for(var i = 0; i < Key.length; i++){
-        offset = Key.charAt(i);
+    for(var i = 0; i < Encryption_Key.length; i++){
+        offset = Encryption_Key.charAt(i);
         encrypted = String(parseInt(num) + parseInt(offset));
 
         // if over 10 get nominal part
