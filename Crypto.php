@@ -97,6 +97,8 @@ class Crypto{
   /** decrypts a string based on a key **/
   static function decrypt($string,$key){
 
+    if($string == "") return;
+
     $string = self::swap_characters($string,array(0,3));
     $string = strrev($string);
     $length = strlen($key);
