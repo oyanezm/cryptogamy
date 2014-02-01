@@ -76,6 +76,9 @@ class Crypto{
     // reverse
     $encrypted = strrev($encrypted);
 
+    // Validate Length
+    if($length < 4) return $encrypted;
+
     // swap characters
     $encrypted = self::swap_characters($encrypted,array(0,3));
 
