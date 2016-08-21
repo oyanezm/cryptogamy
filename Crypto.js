@@ -68,45 +68,46 @@ function init_Crypto(EKEY){
  * 'lalala'       => 'qcffnqdcfonqdcoond'
  *
  **/
-function get_EncryptedString(string){
+function getEncryptedString(string){
 
     // encode each character
-    encrypted = "";
+    var encrypted = "";
     for(var i = 0; i < string.length; i++){
-        chr = string.charAt(i);
-        encrypted = encrypted.concat(get_EncryptedChar(chr));
+        var chr = string.charAt(i);
+        encrypted = encrypted.concat(getEncryptedChar(chr));
     };
 
     // reverse string
     encrypted = encrypted.split("").reverse().join("");
 
     // swap letters TODO: make function of this
-    encrypted = swap_letters(encrypted,new Array(3,3));
-    encrypted = swap_letters(encrypted,new Array(0,0));
+    encrypted = swapLetters(encrypted,new Array(3,3));
+    encrypted = swapLetters(encrypted,new Array(0,0));
 
     return encrypted;
 };
 
 /** swap letter sin a string based on position **/
-function swap_letters(string,positions){
-    string_list = string.split("");
+function swapLetters(string,positions){
+    var stringList = string.split("");
 
-    oldchar = string_list[positions[0]];
-    newchar = string_list[string.length - 1 - positions[1]];
+    var oldchar = stringList[positions[0]];
+    var newchar = stringList[string.length - 1 - positions[1]];
 
-    string_list[positions[0]] = newchar;
-    string_list[string.length - 1 - positions[1]] = oldchar;
+    stringList[positions[0]] = newchar;
+    stringList[string.length - 1 - positions[1]] = oldchar;
 
-    return string_list.join("");
+    return stringList.join("");
 }
 
 /** encrypts a sling character **/
-function get_EncryptedChar(chr){
-    if (is_Alphabet(chr)){ return get_EncryptedLetter(chr);
-    }else if(is_Numeric(chr)){ return get_EncryptedNumber(chr);}
+function getEncryptedChar(chr){
+    
+    if (isAlphabet(chr)){ return getEncryptedLetter(chr);
+    }else if(isNumeric(chr)){ return getEncryptedNumber(chr);}
 
     // is non alphanumeric then just repeat
-    string = ''
+    var string = ''
     for(var i = 0; i < Encryption_Key.length; i++){
         string = string.concat(chr);
     }
@@ -114,24 +115,24 @@ function get_EncryptedChar(chr){
 }
 
 /** encrypts a letter **/
-function get_EncryptedLetter(letter){
-    string = '';
-    is_Upper = (letter == letter.toUpperCase());
+function getEncryptedLetter(letter){
+    var string = '';
+    var isUpper = (letter == letter.toUpperCase());
 
     for(var i = 0; i < Encryption_Key.length; i++){
-        offset = parseInt(Encryption_Key.charAt(i));
-        letter_pos = get_AlphabetPosition(letter);
-        encrypted_pos = letter_pos + offset;
-        if(encrypted_pos > 25){ encrypted_pos = encrypted_pos - 26; }
-        string = string.concat(Alphabet[encrypted_pos]);
+        var offset = parseInt(Encryption_Key.charAt(i));
+        var letterPos = getAlphabetPosition(letter);
+        var encryptedPos = letterPos + offset;
+        if(encryptedPos > 25){ encryptedPos = encryptedPos - 26; }
+        string = string.concat(Alphabet[encryptedPos]);
     }
 
-    if(is_Upper) return string.toUpperCase();
+    if(isUpper) return string.toUpperCase();
     return string;
 }
 
 /** gets position in alphabet **/
-function get_AlphabetPosition(letter){
+function getAlphabetPosition(letter){
     for( i = 0; i < Alphabet.length; i++){
         if (letter.toLowerCase() == Alphabet[i]){ return i;}
     }
@@ -139,11 +140,11 @@ function get_AlphabetPosition(letter){
 }
 
 /** encrypts a number **/
-function get_EncryptedNumber(num){
-    string  = '';
+function getEncryptedNumber(num){
+    var string  = '';
     for(var i = 0; i < Encryption_Key.length; i++){
-        offset = Encryption_Key.charAt(i);
-        encrypted = String(parseInt(num) + parseInt(offset));
+        var offset = Encryption_Key.charAt(i);
+        var encrypted = String(parseInt(num) + parseInt(offset));
 
         // if over 10 get nominal part
         if (parseInt(encrypted) > 9){
@@ -155,7 +156,7 @@ function get_EncryptedNumber(num){
 }
 
 /** validates character ir alphabet **/
-function is_Alphabet(letter){return /^[a-zA-Z]$/.test(letter);}
+function isAlphabet(letter){return /^[a-zA-Z]$/.test(letter);}
 
 /** validates numeric character **/
-function is_Numeric(num){return /^[0-9]$/.test(num);}
+function isNumeric(num){return /^[0-9]$/.test(num);}
